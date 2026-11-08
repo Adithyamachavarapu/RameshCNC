@@ -10,8 +10,6 @@ From this folder, start a small local web server:
 python3 -m http.server 4173
 ```
 
-Then open <http://localhost:4173>.
-
 The catalogue is pre-indexed in `data/catalogue.json`. To rebuild the index from the source PDF:
 
 ```bash

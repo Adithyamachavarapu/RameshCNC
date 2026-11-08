@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b67a3" />
+    <title>RameshCNC Tool Finder</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=4" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#" aria-label="RameshCNC Tool Finder home">
+          <span class="brand-mark">R</span>
+          <span><strong>RameshCNC</strong><small>TOOL FINDER</small></span>
+        </a>
+        <div class="header-status"><span class="status-dot"></span> Tool catalogue 2026–27</div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="catalogue-heading">
+        <div class="breadcrumb">RameshCNC <span>›</span> Tool catalogue</div>
+        <div class="heading-row">
+          <div><div class="heading-kicker">RameshCNC tool catalogue</div><h1 id="page-heading">TOOL HOLDERS &amp; ADAPTERS</h1><p id="page-subheading">Find the holder, insert or adapter that fits your tool.</p></div>
+          <div class="heading-help"><strong>Search first</strong><span>Then select the item to see what fits it.</span></div>
+        </div>
+      </section>
+
+      <nav class="category-strip" id="category-strip" aria-label="Product categories">
+        <button class="category-button" data-section="all"><span class="tool-icon icon-all"></span><strong>All tools</strong></button>
+        <button class="category-button" data-section="turning"><span class="tool-icon icon-turning"></span><strong>Turning</strong></button>
+        <button class="category-button" data-section="grooving"><span class="tool-icon icon-grooving"></span><strong>Grooving &amp;<br />Parting</strong></button>
+        <button class="category-button" data-section="threading"><span class="tool-icon icon-threading"></span><strong>Threading</strong></button>
+        <button class="category-button" data-section="milling"><span class="tool-icon icon-milling"></span><strong>Milling</strong></button>
+        <button class="category-button" data-section="drilling"><span class="tool-icon icon-drilling"></span><strong>Drilling</strong></button>
+        <button class="category-button" data-section="bta"><span class="tool-icon icon-deep"></span><strong>Deep Hole<br />Drilling</strong></button>
+        <button class="category-button" data-section="endmills"><span class="tool-icon icon-endmill"></span><strong>End Mills</strong></button>
+        <button class="category-button" data-section="holders"><span class="tool-icon icon-holder"></span><strong>Tool Holders<br />&amp; Adapters</strong></button>
+        <button class="category-button" data-section="hydraulic"><span class="tool-icon icon-chuck"></span><strong>Hydraulic<br />Chucks</strong></button>
+      </nav>
+
+      <section class="search-card" role="search">
+        <label for="search-input">Search</label>
+        <div class="search-row">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" autocomplete="off" placeholder="Example: CCMT060202 or SCLCR/L" aria-label="Search the RameshCNC tool catalogue" />
+          <button id="clear-search" class="clear-search" type="button" aria-label="Clear search">×</button>
+          <button id="search-submit" class="search-submit" type="button"><span aria-hidden="true">⌕</span><span>Find</span></button>
+        </div>
+        <div class="quick-searches" id="quick-searches"><span>Examples:</span><button type="button" data-query="CCMT">CCMT</button><button type="button" data-query="SCLCR/L">SCLCR/L</button><button type="button" data-query="BT40">BT40</button><button type="button" data-query="DEEP-LINE">DEEP-LINE</button></div>
+        <div class="filter-row">
+          <select id="section-select" class="section-select" aria-label="Filter by product line"></select>
+          <select id="kind-select" class="kind-select" aria-label="Filter by item type"><option value="all">All item types</option><option value="Tool holder / adapter">Tool holders &amp; adapters</option><option value="Insert">Inserts</option><option value="Milling tool">Milling tools</option><option value="Drill / deep-hole tool">Drills &amp; deep-hole tools</option><option value="Grooving / parting tool">Grooving &amp; parting tools</option><option value="Threading tool">Threading tools</option></select>
+          <button id="reset-filters" class="reset-button" type="button">Clear filters</button>
+        </div>
+      </section>
+
+      <div class="finder-layout">
+        <section class="results-panel" aria-live="polite">
+          <div class="results-toolbar">
+            <div><div class="results-kicker" id="results-kicker">Your results</div><h2 id="results-title">Type something above to begin</h2></div>
+            <label class="sort-control">Sort <select id="sort-select" aria-label="Sort results"><option value="relevance">Best match</option><option value="page">Catalogue order</option><option value="az">A–Z</option></select></label>
+          </div>
+          <div class="results-grid" id="results-grid"></div>
+        </section>
+
+        <aside class="recommendation-panel" id="detail-panel">
+          <div class="detail-empty"><div class="empty-symbol">2</div><h3>Choose an item</h3><p>After you select a result, the holder or insert that goes with it will appear here.</p></div>
+        </aside>
+      </div>
+    </main>
+
+    <div id="item-dialog" class="item-dialog" hidden role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <div class="dialog-backdrop" data-close-dialog></div>
+      <section class="dialog-card">
+        <div class="dialog-topline"><span>RameshCNC catalogue result</span><button class="dialog-close" type="button" data-close-dialog aria-label="Close item details">×</button></div>
+        <div class="dialog-heading"><div><div class="dialog-kicker">Selected item</div><h2 id="dialog-title">Item</h2><p id="dialog-subtitle"></p></div><span class="dialog-type" id="dialog-type"></span></div>
+        <div class="dialog-table" id="dialog-table"></div>
+        <section class="dialog-related"><div class="dialog-section-title"><h3 id="dialog-related-title">Recommended with this item</h3><span>Catalogue-backed</span></div><div id="dialog-related-list" class="dialog-related-list"></div></section>
+        <div class="dialog-source" id="dialog-source"></div>
+      </section>
+    </div>
+
+    <footer class="site-footer"><span>RameshCNC · Unitec catalogue 2026–27</span><span class="footer-line"></span><span id="footer-count"></span></footer>
+    <script src="app.js?v=4" defer></script>
+  </body>
+</html>
